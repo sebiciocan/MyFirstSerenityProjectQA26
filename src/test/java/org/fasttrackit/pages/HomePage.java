@@ -16,17 +16,30 @@ public class HomePage extends PageObject {
     private WebElementFacade searchField;
     @FindBy(css = "[title='Search']")
     private WebElementFacade searchIcon;
+    @FindBy(id = "select-language")
+    private WebElementFacade languageDropdown;
 
-    public void clickAccountLink(){
+
+    public void clickAccountLink() {
         clickOn(accountLink);
     }
-    public void clickLoginLink(){
+
+    public void clickLoginLink() {
         clickOn(loginLink);
     }
-    public void setSearchField(String keyword){
+
+    public void setSearchField(String keyword) {
         typeInto(searchField, keyword);
     }
-    public void clickSearchIcon(){
+
+    public void clickSearchIcon() {
+        waitFor(searchField);
         clickOn(searchIcon);
+    }
+
+    public void selectLanguage(){
+        selectFromDropdown(languageDropdown, "English");
+        withAction().moveToElement(languageDropdown).build();
+        getAlert().dismiss();
     }
 }

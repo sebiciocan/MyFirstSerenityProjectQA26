@@ -11,5 +11,6 @@ public class AccountPage extends PageObject {
 
     public void verifyWelcomeMessage(String userName){
         welcomeText.shouldContainOnlyText("Hello, "+userName+"!");
+        String x = welcomeText.getText();
     }
 }

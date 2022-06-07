@@ -4,6 +4,8 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
+import java.time.Duration;
+
 public class LoginPage extends PageObject {
 
     @FindBy(id = "email")
@@ -13,13 +15,18 @@ public class LoginPage extends PageObject {
     @FindBy(id = "send2")
     private WebElementFacade loginButton;
 
-    public void setEmailField(String email){
+    public void setEmailField(String email) {
         typeInto(emailField, email);
     }
-    public void setPasswordField(String password){
-        typeInto(passwordField,password);
+
+    public void setPasswordField(String password) {
+        waitFor(passwordField);
+        withTimeoutOf(Duration.ofSeconds(30)).waitFor(passwordField);
+        typeInto(passwordField, password);
     }
-    public void clickLoginButton(){
+
+
+    public void clickLoginButton() {
         clickOn(loginButton);
     }
 }

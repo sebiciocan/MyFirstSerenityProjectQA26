@@ -1,5 +1,6 @@
 package org.fasttrackit.features.search;
 
+import org.fasttrackit.utils.Constants;
 import org.junit.Test;
 
 
@@ -10,7 +11,7 @@ public class LoginTests extends BaseTest{
     public void loginWithValidCredentialsTest(){
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLogin();
-        loginSteps.setCredentials("cosmin@fasttrackit.org","123456");
+        loginSteps.setCredentials(Constants.USER_EMAIL,Constants.USER_PASS);
         loginSteps.clickLogin();
         loginSteps.verifyUsernameMessage("Cosmin Fast");
     }
