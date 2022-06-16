@@ -6,7 +6,7 @@ import net.thucydides.core.pages.PageObject;
 
 import java.time.Duration;
 
-public class LoginPage extends PageObject {
+public class LoginPage extends BasePage {
 
     @FindBy(id = "email")
     private WebElementFacade emailField;

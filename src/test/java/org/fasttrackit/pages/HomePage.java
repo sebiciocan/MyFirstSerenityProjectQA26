@@ -41,5 +41,13 @@ public class HomePage extends PageObject {
         selectFromDropdown(languageDropdown, "English");
         withAction().moveToElement(languageDropdown).build();
         getAlert().dismiss();
+        languageDropdown.shouldContainText(""+"product"+" has been added to your cart.");
+    }
+
+    public static void workingWithStrings(){
+        String x = "ceva, altceva";
+        String y = x.replace(".00 RON","");
+        String[] z = x.split(",");
+
     }
 }
